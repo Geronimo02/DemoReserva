@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     events: {
       googleCalendarId: "95baba8d058d0917b515c2258002048bee0d3bbee52dac606f5b64a3c3d1959f@group.calendar.google.com", // Reemplaza con tu Calendar ID
       failure: function () {
-        alert("No se pudieron cargar los eventos desde Google Calendar.");
+        alert("Error al cargar los eventos desde Google Calendar.");
       }
     },
     eventClick: function (info) {
@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
       cabinsByDate[selectedDate] = cabins;
 
       document.getElementById("date").value = dayjs(selectedDate).format("YYYY-MM-DD");
+      document.getElementById("date").disabled = false;
+
       const cabinSelect = document.getElementById("cabin");
       cabinSelect.innerHTML = cabins
         .map(cabin => `<option value="${cabin}">${cabin}</option>`)

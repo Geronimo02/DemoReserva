@@ -1,39 +1,95 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset básico */
+body, h1, form, input, select, button, div {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-header {
-  text-align: center;
-  background-color: #4CAF50;
-  color: white;
-  padding: 1rem 0;
-}
-main {
-  max-width: 800px;
-  margin: 20px auto;
+
+/* Estilo general */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
   padding: 20px;
 }
-#reservation-form {
-  margin-top: 20px;
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #4CAF50;
 }
-label {
+
+/* Calendario */
+#calendar {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario */
+#reservation-form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#reservation-form label {
   display: block;
   margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
 }
-input, select, button {
+
+#reservation-form input,
+#reservation-form select {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 4px;
+  font-size: 1em;
 }
-button {
+
+#reservation-form input:disabled,
+#reservation-form select:disabled {
+  background-color: #eee;
+  color: #999;
+}
+
+#reservation-form button {
+  width: 100%;
+  padding: 10px;
   background-color: #4CAF50;
-  color: white;
+  color: #fff;
+  font-size: 1em;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-button:hover {
+
+#reservation-form button:hover {
   background-color: #45a049;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #calendar {
+    width: 100%;
+  }
+
+  #reservation-form {
+    width: 100%;
+    padding: 15px;
+  }
 }
