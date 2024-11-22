@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.getElementById("calendar");
   const cabinsByDate = {};
 
-  // Configurar FullCalendar
   const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridMonth",
     locale: "es",
@@ -14,19 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     },
     eventClick: function (info) {
-      // Manejar clic en un evento
       const selectedDate = info.event.startStr;
-      const cabinSelect = document.getElementById("cabin");
-
-      // Extraer cabañas del título del evento
       const eventTitle = info.event.title;
-      const cabins = eventTitle.includes(":") 
-        ? eventTitle.split(":")[1].split(",").map(c => c.trim()) 
+      const cabins = eventTitle.includes(":")
+        ? eventTitle.split(":")[1].split(",").map(c => c.trim())
         : ["Cabaña"];
 
       cabinsByDate[selectedDate] = cabins;
 
-      // Actualizar opciones de cabañas
+      document.getElementById("date").value = dayjs(selectedDate).format("YYYY-MM-DD");
+      const cabinSelect = document.getElementById("cabin");
       cabinSelect.innerHTML = cabins
         .map(cabin => `<option value="${cabin}">${cabin}</option>`)
         .join("");
@@ -36,18 +32,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   calendar.render();
 
-  // Enviar mensaje por WhatsApp
   document.getElementById("reserve-button").addEventListener("click", function () {
-    const selectedCabin = document.getElementById("cabin").value;
-    const selectedDate = Object.keys(cabinsByDate).find(date => cabinsByDate[date].includes(selectedCabin));
+    const name = document.getElementById("name").value.trim();
+    const surname = document.getElementById("surname").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const selectedDate = document.getElementById("date").value.trim();
+    const selectedCabin = document.getElementById("cabin").value.trim();
 
-    if (!selectedDate || !selectedCabin) {
-      alert("Por favor, selecciona una fecha y una cabaña.");
+    if (!name || !surname || !phone || !selectedDate || !selectedCabin) {
+      alert("Por favor, completa todos los campos.");
       return;
     }
 
     const phoneNumber = "1234567890"; // Reemplaza con el número del propietario
-    const message = `Hola, me gustaría reservar la ${selectedCabin} para la fecha: ${selectedDate}.`;
+    const message = `Hola, soy ${name} ${surname}. Quiero reservar la ${selectedCabin} para el día ${selectedDate}. Mi número de contacto es ${phone}.`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   });

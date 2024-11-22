@@ -2,57 +2,38 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
 }
-
 header {
   text-align: center;
-  padding: 20px;
-  background-color: #4caf50;
+  background-color: #4CAF50;
   color: white;
+  padding: 1rem 0;
 }
-
-h1 {
-  margin: 0;
-}
-
 main {
   max-width: 800px;
   margin: 20px auto;
-  background: white;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-#calendar {
-  max-width: 900px;
-  margin: 20px auto;
-}
-
-form {
+#reservation-form {
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
 }
-
 label {
-  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
 }
-
-select, button {
+input, select, button {
+  width: 100%;
   padding: 10px;
-  font-size: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
-
 button {
-  background-color: #4caf50;
+  background-color: #4CAF50;
   color: white;
   border: none;
   cursor: pointer;
 }
-
 button:hover {
   background-color: #45a049;
 }
