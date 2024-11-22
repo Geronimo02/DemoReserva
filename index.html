@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas de Cabañas</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+  <link href="./app/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Reserva tu Cabaña</h1>
+  </header>
+  <main>
+    <div id="calendar"></div>
+    <form id="reservation-form">
+      <label for="cabin">Cabaña:</label>
+      <select id="cabin" disabled required>
+        <option value="">-- Selecciona una cabaña --</option>
+      </select>
+      <button type="button" id="reserve-button">Reservar por WhatsApp</button>
+    </form>
+  </main>
+  <footer>
+    <p>© 2024 Cabañas Naturales. Todos los derechos reservados.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+  <script src="./app/js/script.js"></script>
+</body>
+</html>
